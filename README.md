@@ -82,7 +82,7 @@ cd ..
 The app requires a GraphQL server to be running. Start the mock server from the parent directory:
 
 ```bash
-# From the root directory (zeller-rn-codechallenge)
+# From the root directory (zeller-rn-task)
 cd mock-server
 yarn install
 yarn start
@@ -95,6 +95,7 @@ The mock server will run on `http://localhost:9002/graphql` by default.
 **No environment variables are required** - the GraphQL endpoint is configured directly in `src/config/graphql.ts`.
 
 The GraphQL endpoint is automatically configured based on the platform:
+
 - **iOS Simulator**: `http://localhost:9002/graphql`
 - **Android Emulator**: `http://10.0.2.2:9002/graphql`
 - **Physical Device**: Update the IP address in `src/config/graphql.ts` to your computer's local IP address (e.g., `http://192.168.1.100:9002/graphql`)
@@ -136,12 +137,11 @@ yarn test:coverage
 ```
 
 The test suite includes:
+
 - **Unit Tests**: Validation logic, utility functions, services
 - **Integration Tests**: API integration, database operations
 - **Component Tests**: UI components, user interactions
 - **Screen Tests**: Main screen functionality
-
-**Coverage Target**: >90% for branches, functions, lines, and statements
 
 ## Technologies Used
 
@@ -183,25 +183,13 @@ The test suite includes:
 - **Pull-to-Refresh**: Refresh data from API
 - **Floating Action Button**: Quick access to add new user
 
-## Environment & Configuration Files
-
-The project includes all necessary configuration files:
-
-- **`android/app/debug.keystore`**: Android debug keystore (already included)
-- **GraphQL Configuration**: Configured in `src/config/graphql.ts` (no `.env` file needed)
-
-If you need to use environment variables in the future, you can:
-1. Install `react-native-config` package
-2. Create a `.env` file with your configuration
-3. Update `src/config/graphql.ts` to read from environment variables
-
 ## Troubleshooting
 
 ### GraphQL Connection Issues
 
 - **iOS Simulator**: Ensure mock server is running on `localhost:9002`
-- **Android Emulator**: Uses `10.0.2.2:9002` automatically (configured in `src/config/graphql.ts`)
-- **Physical Device**: Update IP address in `src/config/graphql.ts` to your computer's local IP address
+- **Android Emulator**: Use `10.0.2.2:9002` instead of `localhost`
+- **Physical Device**: Update IP address in `src/config/graphql.ts` to your computer's local IP
 
 ### Database Issues
 
